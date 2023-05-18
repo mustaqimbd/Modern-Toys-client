@@ -25,7 +25,7 @@ const SignUp = () => {
                 }).then(() => setSuccess('successful account created'))
                     .catch(err => setError(err.massage))
             })
-            .catch(err => setError(err.massage))
+            .catch(err => setError(err.message))
     }
     return (
         <div>
