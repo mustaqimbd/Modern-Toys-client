@@ -26,6 +26,7 @@ const Login = () => {
             .then(() => { setSuccess('Successfully sign in') })
             .catch(e => setError(e.message))
     }
+    
     return (
         <div>
             <div className="bg-gray-100 min-h-screen flex flex-col">
