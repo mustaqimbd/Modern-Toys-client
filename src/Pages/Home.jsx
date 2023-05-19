@@ -1,5 +1,4 @@
 import Banner from "../Components/Banner";
-import Carousel from "../Components/Carousel";
 import Gallery from "../Components/Gallery";
 
 const items = [

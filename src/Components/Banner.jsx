@@ -9,7 +9,7 @@ const Banner = () => {
                 <div className="relative h-56 overflow-hidden rounded-lg md:h-[450px]">
                     {/* Item 1 */}
                     <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://as2.ftcdn.net/v2/jpg/02/86/04/29/1000_F_286042976_yHVCaenhKfl3G1FJysUA8H0gccJLlN1Z.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="..." />
+                        <img src="https://as2.ftcdn.net/v2/jpg/02/86/04/29/1000_F_286042976_yHVCaenhKfl3G1FJysUA8H0gccJLlN1Z.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="Carousel image" />
                         <div className='absolute top-40 left-11'>
                             <h1 className='text-6xl font-bold mb-6'>Math Learning Toys</h1>
                             <p className='w-[70%] text-lg font-bold'>Learn math and develop mathematical skills and understanding to your children by Toys</p>
@@ -25,7 +25,7 @@ const Banner = () => {
                     </div>
                     {/* Item 3 */}
                     <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://as2.ftcdn.net/v2/jpg/02/65/29/13/1000_F_265291349_2INmfj7Z62lDZ33eCwkND7RPSWguEgB6.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="..." />
+                        <img src="https://as2.ftcdn.net/v2/jpg/02/65/29/13/1000_F_265291349_2INmfj7Z62lDZ33eCwkND7RPSWguEgB6.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="Carousel image" />
                         <div className='absolute top-40 left-11'>
                             <h1 className='text-6xl font-bold mb-6'>Math Learning Toys</h1>
                             <p className='w-[70%] text-lg font-bold'>Learn math and develop mathematical skills and understanding to your children by Toys</p>
@@ -33,7 +33,7 @@ const Banner = () => {
                     </div>
                     {/* Item 4 */}
                     <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://as1.ftcdn.net/v2/jpg/01/17/98/80/1000_F_117988080_HODTgclrdjLjBvHtwGHQTw1ogiJZkGPr.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="..." />
+                        <img src="https://as1.ftcdn.net/v2/jpg/01/17/98/80/1000_F_117988080_HODTgclrdjLjBvHtwGHQTw1ogiJZkGPr.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="Carousel image" />
                         <div className='absolute top-40 left-11'>
                             <h1 className='text-6xl font-bold mb-6'>Science Kits Toys</h1>
                             <p className='w-[70%] text-lg font-bold'>Facilitate hands-on learning and exploration of scientific concepts and principles by toys.</p>
@@ -41,7 +41,7 @@ const Banner = () => {
                     </div>
                     {/* Item 5 */}
                     <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://as2.ftcdn.net/v2/jpg/05/84/66/01/1000_F_584660103_XC3tnL9SsfsbQaDBI6csLFRIGiz83gkT.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="..." />
+                        <img src="https://as2.ftcdn.net/v2/jpg/05/84/66/01/1000_F_584660103_XC3tnL9SsfsbQaDBI6csLFRIGiz83gkT.jpg" className="absolute block object-cover w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="Carousel image" />
                         <div className='absolute top-40 left-11'>
                             <h1 className='text-6xl font-bold mb-6'>Engineering Tools Toys</h1>
                             <p className='w-[70%] text-lg font-bold'>Introduce children to the tools and equipment commonly used in engineering and construction fields by toys. </p>

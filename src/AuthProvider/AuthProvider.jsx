@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const userLogin = (email, password) => {
-        return signInWithEmailAndPassword(email, password)
+        return signInWithEmailAndPassword(auth,email, password)
     }
     const googleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const data = {
+        auth,
         user,
         createUser,
         userLogin,
