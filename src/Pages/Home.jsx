@@ -1,5 +1,6 @@
 import Banner from "../Components/Banner";
 import Gallery from "../Components/Gallery";
+import ShopByCategory from "../Components/ShopByCategory";
 
 const items = [
     {
@@ -23,6 +24,7 @@ const Home = () => {
             <Banner />
             <Gallery />
             {/* <Carousel items={items} /> */}
+            <ShopByCategory />
         </div>
     );
 };

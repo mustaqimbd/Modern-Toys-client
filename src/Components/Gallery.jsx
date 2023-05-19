@@ -13,7 +13,7 @@ const images = [
 const Gallery = () => {
     return (
         <div>
-            <h1 className='text-3xl'>My Gallery</h1>
+            <h1 className='text-center text-3xl font-bold mt-8 mb-4'>Modern Toys Gallery</h1>
             
             <div className="grid grid-cols-4 gap-4">
                 {

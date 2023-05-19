@@ -1,5 +1,8 @@
 import { useContext, useState } from 'react';
 import { Context } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
+
 
 const AddToy = () => {
     const { user } = useContext(Context);
@@ -12,23 +15,47 @@ const AddToy = () => {
     const [rating, setRating] = useState('');
     const [quantity, setQuantity] = useState('');
     const [description, setDescription] = useState('');
-
+    const resetForm = () => {
+        setPictureUrl('');
+        setName('');
+        setSellerName(user?.displayName && user.displayName);
+        setSellerEmail(user?.email && user.email);
+        setSubCategory('');
+        setPrice('');
+        setRating('');
+        setQuantity('');
+        setDescription('');
+    };
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const toy = { pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
         console.log(toy);
+
         fetch('http://localhost:5000/add-toy', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(toy)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Success!',
+                        'The toy successfully added',
+                        'success'
+                    )
+                }
+                resetForm();
+            })
+            .catch(err => {
+                console.log(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Toy adding Failed!',
+                    text: 'Something went wrong!',
+                })
+            })
     };
 
     return (
@@ -78,7 +105,7 @@ const AddToy = () => {
                 <select value={subCategory} onChange={(event) => setSubCategory(event.target.value)} className='block w-[90%] mt-2 rounded-md'>
                     <option value="">Select Sub-category</option>
                     <option value="Math Toys">Math Toys</option>
-                    <option value="Language Toys">Language Toys</option>
+                    <option value="Engineering toys">Engineering toys</option>
                     <option value="Science Toys">Science Toys</option>
                 </select>
             </label>
