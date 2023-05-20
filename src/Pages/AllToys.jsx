@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
     const data = useLoaderData();
     const [allToys, setAllToys] = useState(data);
     const [search, setSearch] = useState('')
-    
+
     const handleSearch = () => {
         fetch(`http://localhost:5000/all-toys/${search}`)
             .then(res => res.json())
@@ -15,7 +15,7 @@ const AllToys = () => {
             })
             .catch(err => console.log(err))
     }
-    console.log(allToys, search,data);
+    console.log(allToys, search, data);
     return (
         <div>
             <div className='flex mt-5'>
@@ -33,7 +33,7 @@ const AllToys = () => {
                         <tr>
                             <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Seller</th>
                             <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Toy Name</th>
-                            <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Sub-category</th>
+                            <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Category</th>
                             <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Price</th>
                             <th className="py-2 px-4 border-b font-bold uppercase text-gray-800">Available Quantity</th>
                             <th className="py-2 px-4 border-b font-bold uppercase text-gray-800"></th>
@@ -51,7 +51,7 @@ const AllToys = () => {
     );
 };
 const Row = ({ toy }) => {
-    const { name, pictureUrl, sellerName, sellerEmail, subCategory, price, quantity, rating, description, } = toy;
+    const { _id, name, pictureUrl, sellerName, sellerEmail, subCategory, price, quantity, rating, description, } = toy;
     return (
         <tr className='text-center'>
             <td className="py-2 px-4 border-b">{sellerName}</td>
@@ -60,9 +60,9 @@ const Row = ({ toy }) => {
             <td className="py-2 px-4 border-b">{price}</td>
             <td className="py-2 px-4 border-b">{quantity}</td>
             <td className="py-2 px-4 border-b">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <Link to={`/toy/${_id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     View Details
-                </button>
+                </Link>
             </td>
         </tr>
 
