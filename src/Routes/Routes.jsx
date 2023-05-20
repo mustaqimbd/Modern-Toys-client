@@ -7,6 +7,8 @@ import AddToy from "../Pages/AddToy";
 import Mytoys from "../Pages/Mytoys";
 import DetailsPage from "../Pages/DetailsPage";
 import AllToys from "../Pages/AllToys";
+import PriveteRoute from "./PriveteRoute";
+
 
 const router = createBrowserRouter([
     {
@@ -19,13 +21,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/toy/:id',
-                element: <DetailsPage />,
+                element: <PriveteRoute><DetailsPage /></PriveteRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             },
             {
-                path:'all-toys',
-                element:<AllToys/>,
-                loader:()=>fetch('http://localhost:5000/all-toys/')
+                path: 'all-toys',
+                element: <AllToys />,
+                loader: () => fetch('http://localhost:5000/all-toys/')
             },
             {
                 path: '/my-toys',

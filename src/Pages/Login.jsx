@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../AuthProvider/AuthProvider';
 import { getAuth } from 'firebase/auth';
 
@@ -7,7 +7,10 @@ const Login = () => {
     const { userLogin, googleSignIn } = useContext(Context);
     const [error, setError] = useState();
     const [success, setSuccess] = useState();
-    const auth = getAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const redirectTo = location.state?.pathname || '/';
+    console.log(redirectTo);
     const hanldeSingIn = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -18,15 +21,19 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 setSuccess('successful Login')
+                navigate(redirectTo, { replace: true })
             })
             .catch(err => setError(err.message))
     }
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(() => { setSuccess('Successfully sign in') })
+            .then(() => {
+                setSuccess('Successfully sign in')
+                navigate(redirectTo, { replace: true })
+            })
             .catch(e => setError(e.message))
     }
-    
+
     return (
         <div>
             <div className="bg-gray-100 min-h-screen flex flex-col">
