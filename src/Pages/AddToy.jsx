@@ -1,12 +1,11 @@
 import { useContext, useState } from 'react';
 import { Context } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.css';
 
 
 const AddToy = ({ toy, closeModal }) => {
-    console.log(toy, 'add toy log toy');
-    const { user } = useContext(Context);
+    // console.log(toy, 'add toy log toy');
+    const { user,reload, setReload } = useContext(Context);
     const [pictureUrl, setPictureUrl] = useState(toy?.pictureUrl || '');
     const [name, setName] = useState(toy?.name || '');
     const [sellerName, setSellerName] = useState(user?.displayName || '');
@@ -72,6 +71,7 @@ const AddToy = ({ toy, closeModal }) => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
+                    setReload(!reload)
                     Swal.fire(
                         'Update Success!',
                         'The toy successfully Updated',

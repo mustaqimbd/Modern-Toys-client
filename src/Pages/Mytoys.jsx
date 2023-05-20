@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import ToyModal from '../Components/Modal';
+import Swal from 'sweetalert2';
 
 const Mytoys = () => {
-    const { user } = useContext(Context);
+    const { user, reload, setReload } = useContext(Context);
     const [toys, setToys] = useState([]);
+
     console.log(user?.email);
 
     useEffect(() => {
@@ -16,7 +18,46 @@ const Mytoys = () => {
                 console.log(data, 'data')
             })
             .catch(err => console.log(err))
-    }, [user?.email])
+    }, [user?.email, reload])
+
+    const toyDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/delete-toy/${id}`,
+                    {
+                        method: "DELETE"
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            setReload(!reload)
+                            Swal.fire(
+                                'Delete Success!',
+                                'The toy successfully Updated',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Delete Failed!',
+                            text: 'Something went wrong!',
+                        })
+                    })
+            }
+        })
+    }
     return (
         <div className="container mx-auto px-4 mt-5">
             <table className="min-w-full bg-white border border-gray-300">
@@ -32,7 +73,7 @@ const Mytoys = () => {
                 </thead>
                 <tbody>
                     {
-                        toys.map(toy => <Row toy={toy} key={toy._id} />)
+                        toys.map(toy => <Row toy={toy} key={toy._id} toyDelete={toyDelete} />)
                     }
                 </tbody>
             </table>
@@ -40,7 +81,7 @@ const Mytoys = () => {
 
     );
 };
-const Row = ({ toy }) => {
+const Row = ({ toy, toyDelete }) => {
     const { _id, name, pictureUrl, sellerName, sellerEmail, subCategory, price, quantity, rating, description, } = toy;
     return (
         <tr className='text-center'>
@@ -51,11 +92,12 @@ const Row = ({ toy }) => {
             <td className="py-2 px-4 border-b">{quantity}</td>
             <td className="py-2 px-4 border-b flex gap-4">
                 <div>
-                    <ToyModal toy={toy}/>
+                    {/* update toy */}
+                    <ToyModal toy={toy} />
                 </div>
-                <Link to={`/toy/${_id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button onClick={() => toyDelete(_id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Delete
-                </Link>
+                </button>
 
             </td>
         </tr>

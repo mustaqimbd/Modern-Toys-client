@@ -5,7 +5,8 @@ export const Context = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [reload, setReload] = useState(false)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const createUser = (email, password) => {
@@ -36,7 +37,9 @@ const AuthProvider = ({ children }) => {
         userLogin,
         googleSignIn,
         logOut,
-        loading
+        loading,
+        reload,
+        setReload
     }
     return (
         <Context.Provider value={data}>

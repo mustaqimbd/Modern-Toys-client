@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routes/Routes.jsx'
 import AuthProvider from './AuthProvider/AuthProvider'
 import ReactModal from 'react-modal'
+import 'sweetalert2/dist/sweetalert2.css';
 
 ReactModal.setAppElement('#root');
 ReactDOM.createRoot(document.getElementById('root')).render(
