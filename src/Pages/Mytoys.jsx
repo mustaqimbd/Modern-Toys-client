@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import ToyModal from '../Components/Modal';
 
 const Mytoys = () => {
     const { user } = useContext(Context);
@@ -49,10 +50,13 @@ const Row = ({ toy }) => {
             <td className="py-2 px-4 border-b">{price}</td>
             <td className="py-2 px-4 border-b">{quantity}</td>
             <td className="py-2 px-4 border-b flex gap-4">
+                <div>
+                    <ToyModal toy={toy}/>
+                </div>
                 <Link to={`/toy/${_id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Update
+                    Delete
                 </Link>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+
             </td>
         </tr>
 

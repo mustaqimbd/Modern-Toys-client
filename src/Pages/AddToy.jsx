@@ -4,17 +4,18 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
 
-const AddToy = () => {
+const AddToy = ({ toy, closeModal }) => {
+    console.log(toy, 'add toy log toy');
     const { user } = useContext(Context);
-    const [pictureUrl, setPictureUrl] = useState('');
-    const [name, setName] = useState('');
-    const [sellerName, setSellerName] = useState(user?.displayName && user.displayName);
-    const [sellerEmail, setSellerEmail] = useState(user?.email && user.email);
-    const [subCategory, setSubCategory] = useState('');
-    const [price, setPrice] = useState('');
-    const [rating, setRating] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [description, setDescription] = useState('');
+    const [pictureUrl, setPictureUrl] = useState(toy?.pictureUrl || '');
+    const [name, setName] = useState(toy?.name || '');
+    const [sellerName, setSellerName] = useState(user?.displayName || '');
+    const [sellerEmail, setSellerEmail] = useState(user?.email || '');
+    const [subCategory, setSubCategory] = useState(toy?.subCategory || '');
+    const [price, setPrice] = useState(toy?.price || '');
+    const [rating, setRating] = useState(toy?.rating || '');
+    const [quantity, setQuantity] = useState(toy?.quantity || '');
+    const [description, setDescription] = useState(toy?.description || '');
     const resetForm = () => {
         setPictureUrl('');
         setName('');
@@ -53,6 +54,37 @@ const AddToy = () => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Toy adding Failed!',
+                    text: 'Something went wrong!',
+                })
+            })
+    };
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        const toyData = { pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
+        console.log(toyData);
+
+        fetch(`http://localhost:5000/update/${toy._id}`, {
+            method: "PATCH",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(toyData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Update Success!',
+                        'The toy successfully Updated',
+                        'success'
+                    )
+                }
+                resetForm();
+            })
+            .catch(err => {
+                console.log(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Toy Added Failed!',
                     text: 'Something went wrong!',
                 })
             })
@@ -149,10 +181,15 @@ const AddToy = () => {
                 ></textarea>
             </label>
 
-
-            <button type="submit" className="w-[200px] h-[50px] mx-auto my-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Add
-            </button>
+            {
+                toy ? <span onClick={handleUpdate}>
+                    <button onClick={closeModal} className="w-[200px] h-[50px] mx-auto my-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Update
+                    </button>
+                </span> : <button type="submit" className="w-[200px] h-[50px] mx-auto my-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Add
+                </button>
+            }
 
         </form>
     );

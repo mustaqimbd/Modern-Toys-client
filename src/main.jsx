@@ -4,7 +4,9 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/Routes.jsx'
 import AuthProvider from './AuthProvider/AuthProvider'
+import ReactModal from 'react-modal'
 
+ReactModal.setAppElement('#root');
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className='container mx-auto'>
