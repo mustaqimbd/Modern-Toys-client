@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Card from './Card';
 
+
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
     const fetchData = (text) => {
@@ -24,6 +25,8 @@ const ShopByCategory = () => {
             })
             .catch(err => console.log(err))
     }, [])
+
+
     return (
         <div className='text-center mt-12 mb-8'>
             <h1 className='text-3xl font-bold mb-5'>Shop By Category</h1>

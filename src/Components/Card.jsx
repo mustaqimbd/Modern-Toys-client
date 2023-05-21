@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Card = ({ toy }) => {
+    const { user, loading } = useContext(Context);
     const { _id, name, pictureUrl, price, rating } = toy;
+    const navigate = useNavigate();
     return (
 
         <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -17,10 +22,27 @@ const Card = ({ toy }) => {
                     <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{rating}</span>
                 </div>
                 <div>
-                <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-                    <Link to={`/toy/${_id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">View Details</Link>
-                </div>
+                    <div className="flex items-center justify-between">
+                        <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
+
+                        {
+                            user && loading == false ? <Link to={`/toy/${_id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">View Details</Link> : loading == false && <button onClick={() => {
+                                // Swal.fire('You have to log in first to view details')
+                                Swal.fire({
+                                    title: 'You have to log in first to view details',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Log in'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        navigate(`/toy/${_id}`)
+                                    }
+                                })
+
+                            }} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">View Details</button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

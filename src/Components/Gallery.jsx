@@ -13,9 +13,9 @@ const images = [
 const Gallery = () => {
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold mt-8 mb-4'>Modern Toys Gallery</h1>
+            <h1 className='text-center text-3xl font-bold mt-8 mb-6'>Modern Toys Gallery</h1>
             
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-5 border">
                 {
                     images.map((image, index) => {
                         return (
