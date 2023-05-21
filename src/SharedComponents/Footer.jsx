@@ -3,20 +3,18 @@ import logo from "../assets/logo.png"
 const Footer = () => {
     return (
         <footer
-            className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+            className="bg-[#202936] text-white text-center mt-12 rounded-t-sm lg:text-left">
             <div className="mx-6 py-10 text-center md:text-left">
                 <div className="grid-1 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
                     <div className="">
                         <h6
-                            className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
-                            <img className="w-12 h-12" src={logo} alt="" />
+                            className=" mb-4 flex items-center justify-center font-bold text-2xl uppercase md:justify-start">
+                            <img className="w-12 h-12 rounded-full mr-3" src={logo} alt="" />
                             Modern Toys
                         </h6>
                         <p>
-                            Here you can use rows and columns to organize your footer
-                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit.
+                         We are continually innovating to provide engaging, educational, and interactive experiences for children of all ages.
                         </p>
                     </div>
 
@@ -26,7 +24,7 @@ const Footer = () => {
                             Follo Us
                         </h6>
                         <div className="flex flex-col gap-5">
-                            <a href="#!" className="mr-6 flex gap-2 items-center text-neutral-600 dark:text-neutral-200">
+                            <a href="#!" className="mr-6 flex gap-2 items-center ">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-4 w-4"
@@ -37,7 +35,7 @@ const Footer = () => {
                                 </svg>
                                 Facebook
                             </a>
-                            <a href="#!" className="mr-6 flex gap-2 items-center text-neutral-600 dark:text-neutral-200">
+                            <a href="#!" className="mr-6 flex gap-2 items-center ">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-4 w-4"
@@ -49,7 +47,7 @@ const Footer = () => {
                                 Twitter
                             </a>
 
-                            <a href="#!" className="mr-6 flex gap-2 items-center text-neutral-600 dark:text-neutral-200">
+                            <a href="#!" className="mr-6 flex gap-2 items-center ">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-4 w-4"
@@ -114,9 +112,9 @@ const Footer = () => {
             </div>
 
 
-            <div className="bg-neutral-200 p-6 text-center dark:bg-neutral-700">
+            <div className="text-white bg-[#111826] p-6 text-center">
                 <span>© 2023 Copyright </span>
-                <span className="font-semibold text-neutral-600 dark:text-neutral-400"
+                <span className="font-semibold text-white bg-[#111826]"
                 >Modern Toys
                 </span>
             </div>
