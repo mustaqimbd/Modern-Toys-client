@@ -7,6 +7,7 @@ import AuthProvider from './AuthProvider/AuthProvider'
 import ReactModal from 'react-modal'
 import 'sweetalert2/dist/sweetalert2.css';
 
+
 ReactModal.setAppElement('#root');
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

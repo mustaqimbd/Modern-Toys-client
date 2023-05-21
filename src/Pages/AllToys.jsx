@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 const AllToys = () => {
     const data = useLoaderData();
     const [allToys, setAllToys] = useState(data);
     const [search, setSearch] = useState('')
-
+    
+    usePageTitle('Modern Toys || All toys')
     const handleSearch = () => {
         fetch(`http://localhost:5000/all-toys/${search}`)
             .then(res => res.json())

@@ -1,6 +1,8 @@
 import React from 'react';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 const Blogs = () => {
+    usePageTitle('Modern Toys||Blogs')
     return (
         <div>
             <h1 className='text-center font-bold text-3xl mt-8 mb-5'>Welcome to our blogs</h1>

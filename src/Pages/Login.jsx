@@ -2,9 +2,11 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 
 const Login = () => {
+    usePageTitle('Modern Toys||Login')
     const { userLogin, googleSignIn } = useContext(Context);
     const [error, setError] = useState();
     const [success, setSuccess] = useState();

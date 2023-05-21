@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
+import usePageTitle from "../Utilitis/usePageTitle";
 
 const DetailsPage = () => {
+    usePageTitle('Modern Toys||Details')
     const data = useLoaderData()
     const { name, pictureUrl, sellerName, sellerEmail, subCategory, price, quantity, rating, description, } = data;
     console.log(data);

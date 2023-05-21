@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../AuthProvider/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 const SignUp = () => {
+    usePageTitle('Modern Toys||Sign up')
     const { createUser } = useContext(Context);
     const [error, setError] = useState();
     const [success, setSuccess] = useState();

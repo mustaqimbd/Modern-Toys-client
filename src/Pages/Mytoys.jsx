@@ -3,8 +3,10 @@ import { Context } from '../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import ToyModal from '../Components/Modal';
 import Swal from 'sweetalert2';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 const Mytoys = () => {
+    usePageTitle('Modern Toys||My Toys')
     const { user, reload, setReload } = useContext(Context);
     const [toys, setToys] = useState([]);
 

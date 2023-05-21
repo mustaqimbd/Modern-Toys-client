@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { Context } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import usePageTitle from '../Utilitis/usePageTitle';
 
 
 const AddToy = ({ toy, closeModal }) => {
-    // console.log(toy, 'add toy log toy');
+   usePageTitle('Modern Toys||Add toys')
     const { user,reload, setReload } = useContext(Context);
     const [pictureUrl, setPictureUrl] = useState(toy?.pictureUrl || '');
     const [name, setName] = useState(toy?.name || '');
