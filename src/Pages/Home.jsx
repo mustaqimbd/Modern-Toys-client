@@ -1,4 +1,4 @@
-import Banner from "../Components/Banner";
+import HomeCarousel from "../Components/Carousel";
 import Gallery from "../Components/Gallery";
 import NewProducts from "../Components/NewProducts";
 import PopularToys from "../Components/PopularToys";
@@ -8,7 +8,7 @@ import ShopByCategory from "../Components/ShopByCategory";
 const Home = () => {
     return (
         <div>
-            <Banner />
+            <HomeCarousel />
             <Gallery />
             <ShopByCategory />
             <PopularToys />
