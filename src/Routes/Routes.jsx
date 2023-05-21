@@ -9,12 +9,14 @@ import DetailsPage from "../Pages/DetailsPage";
 import AllToys from "../Pages/AllToys";
 import PriveteRoute from "./PriveteRoute";
 import Blogs from "../Pages/Blogs";
+import ErrorHandlePage from "../Pages/ErrorHandlePage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
+        errorElement: <ErrorHandlePage />,
         children: [
             {
                 path: '/',
