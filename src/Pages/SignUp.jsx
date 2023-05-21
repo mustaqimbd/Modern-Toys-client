@@ -22,7 +22,7 @@ const SignUp = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photo
-                }).then(() => setSuccess('successful account created'))
+                }).then(() => setSuccess('successfully account created'))
                     .catch(err => setError(err.massage))
             })
             .catch(err => setError(err.message))
@@ -32,7 +32,7 @@ const SignUp = () => {
             <div className="bg-gray-100 min-h-screen flex flex-col">
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <form onSubmit={hanldeSingUp} className="bg-white px-6 py-8 rounded drop-shadow-2xl text-black w-full">
-                        <h1 className="mb-4 text-3xl text-center">Sign up</h1>
+                        <h1 className="mb-4 text-3xl font-bold text-center">Sign up</h1>
                         {
                             error && <p className='text-red-700'>{error}</p>
                         }
@@ -57,18 +57,18 @@ const SignUp = () => {
                             required />
                         <input
                             type="url"
-                            className="block border border-grey-light w-full p-3 rounded mb-4"
+                            className="block border border-grey-light w-full p-3 rounded"
                             name="photo"
                             placeholder="Enter photo url" />
-                        <div className="text-gray-700 mt-6">
+                        <div className="text-gray-700 mb-4 mt-1 text-center">
                             Already have an account?
-                            <Link to='/login' className="no-underline border-b border-blue text-blue-600">
+                            <Link to='/login' className="no-underline border-b border-blue text-blue-500 ml-2 font-bold hover:text-blue-700">
                                 Log in
                             </Link>.
                         </div>
                         <button
                             type="submit"
-                            className="w-full text-center py-3 rounded bg-blue-600 hover:bg-green-dark focus:outline-none my-1"
+                            className="w-full text-center py-2 text-lg font-medium rounded text-white bg-[#111826] hover:bg-blue-800  focus:outline-none my-1"
                         >Create Account</button>
                     </form>
                 </div>
