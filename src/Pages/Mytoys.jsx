@@ -114,7 +114,7 @@ const Row = ({ toy, toyDelete }) => {
                     {/* update toy */}
                     <ToyModal toy={toy} />
                 </div>
-                <button onClick={() => toyDelete(_id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button onClick={() => toyDelete(_id)} className="bg-[#111826] hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                     Delete
                 </button>
 

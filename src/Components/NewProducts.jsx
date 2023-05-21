@@ -6,7 +6,7 @@ const NewProducts = () => {
     const allToys = useLoaderData();
     return (
         <div>
-            <h1 className='text-3xl font-bold text-center mb-4'>Our new products</h1>
+            <h1 className='text-3xl font-bold text-center mt-6 mb-4'>Our new products</h1>
             <Marquee pauseOnHover>
                 <div className="flex gap-5 ml-5">
                     {

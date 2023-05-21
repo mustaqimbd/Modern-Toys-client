@@ -24,7 +24,7 @@ const AllToys = () => {
             <div className='flex mt-5'>
                 <div className="flex items-center gap-5 mx-auto">
                     <input type="text" name="search" value={search} onChange={(e) => setSearch(e.target.value)} required placeholder="Search" className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                    <button onClick={handleSearch} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button onClick={handleSearch} className="bg-[#111826] hover:bg-blue-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         Search
                     </button>
                 </div>
@@ -63,7 +63,7 @@ const Row = ({ toy }) => {
             <td className="py-2 px-4 border-b">{price}</td>
             <td className="py-2 px-4 border-b">{quantity}</td>
             <td className="py-2 px-4 border-b">
-                <Link to={`/toy/${_id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <Link to={`/toy/${_id}`} className="bg-[#111826] hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                     View Details
                 </Link>
             </td>

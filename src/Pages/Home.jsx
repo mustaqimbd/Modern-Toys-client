@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import HomeCarousel from "../Components/Carousel";
 import Gallery from "../Components/Gallery";
 import NewProducts from "../Components/NewProducts";
 import PopularToys from "../Components/PopularToys";
@@ -7,6 +6,7 @@ import ShopByCategory from "../Components/ShopByCategory";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import usePageTitle from "../Utilitis/usePageTitle";
+import Banner from "../Components/Banner";
 
 const Home = () => {
     usePageTitle('Modern Toys||Home page')
@@ -15,7 +15,8 @@ const Home = () => {
     }, []);
     return (
         <div>
-            <HomeCarousel />
+            {/* <HomeCarousel /> */}
+            <Banner />
             <div data-aos="fade-left"><Gallery /></div>
             <div data-aos="fade-right"><ShopByCategory /></div>
 

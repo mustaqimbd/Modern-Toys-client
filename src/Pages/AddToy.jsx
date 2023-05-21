@@ -5,8 +5,8 @@ import usePageTitle from '../Utilitis/usePageTitle';
 
 
 const AddToy = ({ toy, closeModal }) => {
-   usePageTitle('Modern Toys||Add toys')
-    const { user,reload, setReload } = useContext(Context);
+    usePageTitle('Modern Toys||Add toys')
+    const { user, reload, setReload } = useContext(Context);
     const [pictureUrl, setPictureUrl] = useState(toy?.pictureUrl || '');
     const [name, setName] = useState(toy?.name || '');
     const [sellerName, setSellerName] = useState(user?.displayName || '');
@@ -184,10 +184,10 @@ const AddToy = ({ toy, closeModal }) => {
 
             {
                 toy ? <span onClick={handleUpdate}>
-                    <button onClick={closeModal} className="w-[200px] h-[50px] mx-auto my-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <button onClick={closeModal} className="w-[200px] h-[50px] mx-auto my-auto bg-[#111826] hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                         Update
                     </button>
-                </span> : <button type="submit" className="w-[200px] h-[50px] mx-auto my-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                </span> : <button type="submit" className="w-[200px] h-[50px] mx-auto my-auto bg-[#111826] hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                     Add
                 </button>
             }
