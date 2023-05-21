@@ -60,8 +60,25 @@ const Mytoys = () => {
             }
         })
     }
+    const sortToy = (text) => {
+        fetch(`http://localhost:5000/my-toys/${text}${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data)
+                console.log(data);
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <div className="container mx-auto px-4 mt-5">
+            <div className='flex mb-4'>
+                <select onChange={(e) => sortToy(e.target.value)} className='block mt-2 rounded-md mx-auto'>
+                    <option value=''>Sort by price</option>
+                    <option value="ascending/">Low to high price</option>
+                    <option value="descending/">High to low price</option>
+                </select>
+            </div>
+
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
