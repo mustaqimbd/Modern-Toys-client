@@ -21,17 +21,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/all-toys/')
+                loader: () => fetch('https://modern-toys-server.vercel.app/all-toys/')
             },
             {
                 path: '/toy/:id',
                 element: <PriveteRoute><DetailsPage /></PriveteRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://modern-toys-server.vercel.app/toy/${params.id}`)
             },
             {
                 path: 'all-toys',
                 element: <AllToys />,
-                loader: () => fetch('http://localhost:5000/all-toys/')
+                loader: () => fetch('https://modern-toys-server.vercel.app/all-toys/')
             },
             {
                 path: '/my-toys',

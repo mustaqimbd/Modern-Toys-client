@@ -8,12 +8,11 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log('log out successful');
             })
             .catch((e) => { console.log(e) })
     }
     return (
-        <nav className="bg-[#202936] text-white dark:bg-gray-900 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 rounded-md">
+        <nav className="bg-[#202936] text-white dark:bg-gray-900 w-full z-20 top-0 left-0 rounded-md">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to="/" className="flex items-center">
                     <img src={logo} className="h-10 mr-3 rounded-full" alt="Logo" />

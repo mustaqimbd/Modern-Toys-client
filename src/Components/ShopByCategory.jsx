@@ -8,20 +8,20 @@ import Card from './Card';
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
     const fetchData = (text) => {
-        fetch(`http://localhost:5000/${text}`)
+        fetch(`https://modern-toys-server.vercel.app/${text}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
-                console.log(data);
+                
             })
             .catch(err => console.log(err))
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/Math Toys`)
+        fetch(`https://modern-toys-server.vercel.app/Math Toys`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
-                console.log(data);
+                
             })
             .catch(err => console.log(err))
     }, [])
@@ -38,21 +38,21 @@ const ShopByCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-3 gap-5'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-5 md:mx-0'>
                         {
                             toys.map(toy => <Card toy={toy} key={toy._id} />)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-3 gap-5'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-5 md:mx-0'>
                         {
                             toys.map(toy => <Card toy={toy} key={toy._id} />)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='grid grid-cols-3 gap-5'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-5 md:mx-0'>
                         {
                             toys.map(toy => <Card toy={toy} key={toy._id} />)
                         }

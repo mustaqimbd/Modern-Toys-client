@@ -6,9 +6,9 @@ import img5 from '../assets/images/img5.jpg'
 
 const PopularToys = () => {
     return (
-        <div>
+        <div className='mx-5 md:mx-0'>
             <h1 className='text-3xl font-bold text-center mt-10 mb-6'>Popular Toys</h1>
-            <div className=' grid grid-cols-3 gap-5'>
+            <div className=' grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 <div className='relative'>
                 <img src={img1} alt="" />
                 <button className="text-white absolute top-[40%] left-[30%] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 opacity-40 hover:opacity-100 ">Buy now</button>

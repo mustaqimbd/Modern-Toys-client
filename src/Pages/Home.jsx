@@ -6,7 +6,7 @@ import ShopByCategory from "../Components/ShopByCategory";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import usePageTitle from "../Utilitis/usePageTitle";
-import Banner from "../Components/Banner";
+import HomeCarousel from "../Components/HomeCarousel";
 
 const Home = () => {
     usePageTitle('Modern Toys||Home page')
@@ -15,8 +15,7 @@ const Home = () => {
     }, []);
     return (
         <div>
-            {/* <HomeCarousel /> */}
-            <Banner />
+            <HomeCarousel />
             <div data-aos="fade-left"><Gallery /></div>
             <div data-aos="fade-right"><ShopByCategory /></div>
 

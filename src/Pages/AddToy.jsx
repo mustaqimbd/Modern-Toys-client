@@ -27,19 +27,20 @@ const AddToy = ({ toy, closeModal }) => {
         setQuantity('');
         setDescription('');
     };
+    console.log(price);
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const toy = { pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
-        console.log(toy);
 
-        fetch('http://localhost:5000/add-toy', {
+
+        fetch('https://modern-toys-server.vercel.app/add-toy', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(toy)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+
                 if (data.insertedId) {
                     Swal.fire(
                         'Success!',
@@ -61,16 +62,16 @@ const AddToy = ({ toy, closeModal }) => {
     const handleUpdate = (event) => {
         event.preventDefault();
         const toyData = { pictureUrl, name, sellerName, sellerEmail, subCategory, price, rating, quantity, description }
-        console.log(toyData);
 
-        fetch(`http://localhost:5000/update/${toy._id}`, {
+
+        fetch(`https://modern-toys-server.vercel.app/update/${toy._id}`, {
             method: "PATCH",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(toyData)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+
                 if (data.modifiedCount > 0) {
                     setReload(!reload)
                     Swal.fire(
@@ -149,7 +150,7 @@ const AddToy = ({ toy, closeModal }) => {
                 <input className='block w-[90%] mt-2 rounded-md'
                     type="number"
                     value={price}
-                    onChange={(event) => setPrice(event.target.value)}
+                    onChange={(event) => setPrice(parseInt(event.target.value))}
                 />
             </label>
 

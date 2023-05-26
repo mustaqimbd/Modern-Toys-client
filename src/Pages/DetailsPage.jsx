@@ -5,7 +5,7 @@ const DetailsPage = () => {
     usePageTitle('Modern Toys||Details')
     const data = useLoaderData()
     const { name, pictureUrl, sellerName, sellerEmail, subCategory, price, quantity, rating, description, } = data;
-    console.log(data);
+    
     return (
         <>
         <div className="flex mt-10">

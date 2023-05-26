@@ -13,17 +13,17 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const redirectTo = location.state?.pathname || '/';
-    console.log(redirectTo);
+    
 
     const hanldeSingIn = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        
         userLogin(email, password)
             .then(result => {
-                console.log(result.user);
+                
                 setSuccess('Successfully Log in!')
                 navigate(redirectTo, { replace: true })
             })

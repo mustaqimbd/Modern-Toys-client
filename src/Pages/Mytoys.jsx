@@ -10,14 +10,14 @@ const Mytoys = () => {
     const { user, reload, setReload } = useContext(Context);
     const [toys, setToys] = useState([]);
 
-    console.log(user?.email);
+   
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toys/${user?.email}`)
+        fetch(`https://modern-toys-server.vercel.app/my-toys/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
-                console.log(data, 'data')
+               
             })
             .catch(err => console.log(err))
     }, [user?.email, reload])
@@ -33,13 +33,13 @@ const Mytoys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/delete-toy/${id}`,
+                fetch(`https://modern-toys-server.vercel.app/delete-toy/${id}`,
                     {
                         method: "DELETE"
                     })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        
                         if (data.deletedCount > 0) {
                             setReload(!reload)
                             Swal.fire(
@@ -61,11 +61,11 @@ const Mytoys = () => {
         })
     }
     const sortToy = (text) => {
-        fetch(`http://localhost:5000/my-toys/${text}${user?.email}`)
+        fetch(`https://modern-toys-server.vercel.app/my-toys/${text}${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
-                console.log(data);
+                
             })
             .catch(err => console.log(err))
     }

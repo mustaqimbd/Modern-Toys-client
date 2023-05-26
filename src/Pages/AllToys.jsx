@@ -9,16 +9,16 @@ const AllToys = () => {
 
     usePageTitle('Modern Toys || All toys')
     const handleSearch = () => {
-        fetch(`http://localhost:5000/all-toys/${search}`)
+        fetch(`https://modern-toys-server.vercel.app/all-toys/${search}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
-                console.log(data);
+                
             })
             .catch(err => console.log(err))
     }
     
-    console.log(allToys, search, data);
+   
     return (
         <div>
             <div className='flex mt-5'>

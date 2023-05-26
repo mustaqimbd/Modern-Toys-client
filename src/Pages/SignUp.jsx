@@ -17,10 +17,10 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photo

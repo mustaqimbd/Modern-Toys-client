@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import AddToy from "../Pages/AddToy";
 const ToyModal = ({ toy }) => {
-    // console.log(toy, "iddd");
+   
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
